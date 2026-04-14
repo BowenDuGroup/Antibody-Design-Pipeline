@@ -1,6 +1,6 @@
 # Antibody Design Pipeline: LoRA-Enhanced Generative AI
 
-This repository implements an advanced, end-to-end deep learning pipeline for *de novo* therapeutic antibody design. Unlike standard wrapping scripts, our approach pioneers the use of **domain-specific Low-Rank Adaptation (LoRA)** on the RFdiffusion backbone, significantly enhancing its capability to model complex antibody-antigen interfaces using large-scale datasets (e.g., BigBind). By seamlessly coupling this structurally optimized backbone with **ProteinMPNN** for inverse folding, we provide a robust, high-fidelity framework for generating target-specific binders.
+This repository implements an advanced, end-to-end deep learning pipeline for *de novo* therapeutic antibody design. Unlike standard wrapping scripts, our approach pioneers the use of **domain-specific Low-Rank Adaptation (LoRA)** on the RFdiffusion backbone, significantly enhancing its capability to model complex antibody-antigen interfaces using large-scale datasets (e.g., SAbDab). By seamlessly coupling this structurally optimized backbone with **ProteinMPNN** for inverse folding, we provide a robust, high-fidelity framework for generating target-specific binders.
 
 ## ✨ Key Innovations
 
@@ -11,7 +11,7 @@ This repository implements an advanced, end-to-end deep learning pipeline for *d
 ## 📋 Pipeline Overview
 
 The pipeline consists of three main phases:
-1.  **Fine-tuning (LoRA):** Train the RFdiffusion model using LoRA (Low-Rank Adaptation) on the BigBind dataset to enhance antibody-antigen interface binding features.
+1.  **Fine-tuning (LoRA):** Train the RFdiffusion model using LoRA (Low-Rank Adaptation) on the SAbDab dataset to enhance antibody-antigen interface binding features.
 2.  **Backbone Generation:** Use the merged RFdiffusion model to generate 3D candidate antibody backbones targeting specific epitopes.
 3.  **Sequence Design (ProteinMPNN):** Run the ProteinMPNN model using the generated backbones for antibody chain sequence optimization while locking the target antigen.
 
@@ -30,7 +30,7 @@ The pipeline consists of three main phases:
 ├── mpnn_results/                 # Results generated with ProteinMPNN
 ├── data/                         # Data storage
 │   ├── example/                  # Data used for test
-│   └── raw/                      # Some data from processed BigBind dataset
+│   └── raw/                      # Some data from processed SAbDab dataset
 ├── models/                       # Model checkpoints
 │   └── download_weights.sh       # Download the trained LoRA weights
 ├── RFdiffusion/                  # Phase 2: Structural Diffusion submodule
@@ -43,5 +43,5 @@ The pipeline consists of three main phases:
 
 This diagram illustrates how domain-specific optimization (LoRA) is seamlessly integrated into the automated generative pipeline.
 
-![Pipeline Architecture](./images/workflow.jpf)
+![Pipeline Architecture](./images/workflow.jpg)
 
